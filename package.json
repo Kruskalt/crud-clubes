@@ -4,10 +4,11 @@
   "description": "Aplicación donde se puedan crear, consultar, actualizar y eliminar equipos en Inglaterra usando express + handlebars.",
   "main": "index.js",
   "scripts": {
+    "servidor": "http-server",
     "dev:threads": "nodemon threads.js",
     "dev": "nodemon index-3.js",
     "dev:express": "nodemon ./express/index-2.js",
-    "dev:template": "cd ./template-engine && nodemon --inspect index.js",
+    "dev:template": "cd ./tarea2/webApi && nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/Kruskalt/crud-clubes#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express-handlebars": "^4.0.4",
@@ -32,6 +34,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "express": "^4.18.2",
+    "http-server": "^14.1.1",
     "nodemon": "^2.0.22"
   }
 }
