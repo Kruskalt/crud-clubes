@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>equipo</title>
+</head>
+<body>
+    <h1></h1>
+</body>
+<script>
+        // Obtener el valor del parámetro 'id' de la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var nombre = urlParams.get('name');
+
+    // Usar el valor del parámetro 'id' en el HTML
+    document.querySelector("h1").textContent = 'El nombre es: ' + nombre;
+    document.querySelector("title").textContent= nombre;
+
+</script>
+</html>
