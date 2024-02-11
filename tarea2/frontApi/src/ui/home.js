@@ -5,10 +5,11 @@ export async function listarEquipos(equipos, equipoSeleccionadoCallback = () => 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card', 'main__card');
         cardDiv.style.display = 'inline-block';
+        
+
 
         const img = document.createElement('img');
         img.src = equipo.crestUrl;
-
         img.alt = '...';
 
         const cardBodyDiv = document.createElement('div');

@@ -32,6 +32,8 @@ app.get('/equipos', (req, res) => {
   res.send(equipos);
 });
 
+
+
 app.listen(PUERTO);
 console.log(`Escuchando en http://localhost:${PUERTO}`);
 
