@@ -8,7 +8,7 @@
 const fs = require('fs');
 const express = require('express');
 const multer = require('multer');
-var cors = require('cors')
+const cors = require('cors')
 
 const upload = multer({ dest: './uploads/imagenes' });
 const exphbs = require('express-handlebars');
@@ -30,6 +30,25 @@ app.get('/equipos', (req, res) => {
   const equipos = fs.readFileSync('./data/equipos.json');
   res.setHeader('Content-Type', 'application/json');
   res.send(equipos);
+});
+
+app.post('/form', upload.single('imagen'), (req, res) => {
+  
+  const equipos = fs.readFileSync('./data/equipos.json');
+  const objetoJson = JSON.parse(equipos);
+
+  objetoJson.push({
+    "id": asignarUnId(objetoJson), "name": req.body.nombre,
+    "address": req.body.direccion,
+    "crestUrl": "tarea2/webApi/uploads/imagenes/" + req.file.filename,
+    "area": { "name": req.body.pais },
+    "phone": req.body.telefono,
+    "website": req.body.website
+
+  })
+
+  fs.writeFileSync('./data/equipos.json', JSON.stringify(objetoJson));
+  res.redirect('http://192.168.0.49:8081/');
 });
 
 
