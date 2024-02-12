@@ -51,7 +51,21 @@ app.post('/form', upload.single('imagen'), (req, res) => {
   res.redirect('http://192.168.0.49:8081/');
 });
 
+app.get('/borrar/:id', (req, res) => {
+  const equipos = fs.readFileSync('./data/equipos.json');
+  const objetoJson = JSON.parse(equipos);
+  const nuevoArray = objetoJson.filter(objeto => objeto.id !== Number(req.params.id));
+  fs.writeFileSync('./data/equipos.json', JSON.stringify(nuevoArray));
+  res.redirect('/');
+});
 
+app.get('/equipo/:id/ver', (req, res) => {
+  const equipos = fs.readFileSync('./data/equipos.json');
+  const objetoJson = JSON.parse(equipos);
+  const equipo= objetoJson.find(objeto => objeto.id === Number(req.params.id));
+  res.setHeader('Content-Type', 'application/json');
+  res.send(equipo);
+});
 
 app.listen(PUERTO);
 console.log(`Escuchando en http://localhost:${PUERTO}`);

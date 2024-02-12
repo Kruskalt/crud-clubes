@@ -1,8 +1,9 @@
+
 import { pedirEquipos } from "./servicios/servicios.js";
 import { listarEquipos } from "./ui/home.js";
 
-function irApaginaDelEquipo(nombre) {
-    window.location.href = `tarea2/frontApi/templates/equipo?name=${nombre}`;
+function irApaginaDelEquipo(equipo) {
+    window.location.href = `tarea2/frontApi/templates/equipo?id=${equipo.id}`;
 }
 
 async function inicializar() {

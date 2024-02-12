@@ -1,21 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+  .escudo-equipo {
+    height: 250px;
+  }
+  td{
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-danger-rgb),var(--bs-bg-opacity))!important;
+    
+  }
+  th{
+    --bs-bg-opacity: 1;
+    background-color: grey!important;
+  }
+
+  table{
+    margin-left: 20px;
+    width: 95% !important;
+    margin-top: 20px;
+  }
+  .container-imagen{
+    align-items: center;
+    text-align: center;
+  }
+  .titulo{
+    margin-top: 30px;
+    font-size: 100px;
+    
+  }
+  
+</style>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>equipo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../estiloHome.css">
+  <title>equipo</title>
 </head>
+
 <body>
-    <h1></h1>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-danger" id="headerNav">
+      <div class="container-fluid">
+        <a class="navbar-brand d-block d-lg-none" href="#">
+          <img src="https://seeklogo.com/images/P/premier-league-new-logo-D22A0CE87E-seeklogo.com.png" height="80" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto ">
+            <li class="nav-item">
+              <a class="nav-link mx-2 active" aria-current="page" href="/" onclick="window.location.href ='/'">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="/tarea2/frontApi/templates/form_agregar.html"
+                onclick="window.location.href ='tarea2/frontApi/templates/form_agregar.html'">Agregar equipos</a>
+            </li>
+            <li class="nav-item d-none d-lg-block">
+              <a class="nav-link mx-2" href="#">
+                <img src="https://seeklogo.com/images/P/premier-league-new-logo-D22A0CE87E-seeklogo.com.png"
+                  height="80" />
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Company
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Blog</a></li>
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+  </header>
+
+  <main>
+    <div class="main-body">
+      <h1></h1>
+      <div class="container-imagen">
+        <img src="#" alt="" class="escudo-equipo">
+        <h1 class="titulo"></h1>
+      </div>
+
+      <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Informacion</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+            <tr>       
+               
+                <td> Nombre</td>
+                <td> {{data.nombre}}</td>   
+            </tr>
+            <tr>
+                  
+                <td> Direccion</td>
+                <td> {{data.direccion}}</td>   
+            </tr>
+            <tr>
+                  
+                <td> Pais</td>
+                <td> {{data.pais}}</td>   
+            </tr>
+            <tr>
+                  
+                <td> Telefono</td>
+                <td> {{data.telefono}}</td>   
+            </tr>
+            <tr>
+                  
+                <td> Website</td>
+                <td><a href="{{data.web}}">{{data.web}}</a></td>   
+            </tr>
+    
+        </tbody>
+    </table>
+
+    </div>
+  </main>
+
+
 </body>
-<script>
-        // Obtener el valor del parámetro 'id' de la URL
-    var urlParams = new URLSearchParams(window.location.search);
-    var nombre = urlParams.get('name');
+<script src="../src/equipo.js" type="module"></script>
 
-    // Usar el valor del parámetro 'id' en el HTML
-    document.querySelector("h1").textContent = 'El nombre es: ' + nombre;
-    document.querySelector("title").textContent= nombre;
-
-</script>
 </html>

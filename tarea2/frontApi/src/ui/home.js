@@ -17,7 +17,7 @@ export async function listarEquipos(equipos, equipoSeleccionadoCallback = () => 
         cardDiv.appendChild(img);
         cardDiv.appendChild(cardBodyDiv);
         colDiv.appendChild(cardDiv);
-        colDiv.onclick = () => equipoSeleccionadoCallback(equipo.name);
+        colDiv.onclick = () => equipoSeleccionadoCallback(equipo);
 
         const rowElement = document.querySelector('.row');
         rowElement.appendChild(colDiv);
