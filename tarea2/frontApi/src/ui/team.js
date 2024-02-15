@@ -25,3 +25,8 @@ export function obtenerIdUrl() {
 
     return id;
 }
+
+export function borrarElEquipo(equipoSeleccionadoCallback = () => { }) {
+  const $botBorrar= document.querySelector(".borrar")
+  $botBorrar.addEventListener("click",()=> equipoSeleccionadoCallback(obtenerIdUrl()))
+}

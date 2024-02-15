@@ -11,14 +11,10 @@ const multer = require('multer');
 const cors = require('cors')
 
 const upload = multer({ dest: './uploads/imagenes' });
-const exphbs = require('express-handlebars');
+
 
 const PUERTO = 8080;
 const app = express();
-const hbs = exphbs.create();
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 app.use(cors());
 // esto define que el directorio /uploads contiene assets estáticos,
 // que se deben servir tal cual están
@@ -51,12 +47,12 @@ app.post('/form', upload.single('imagen'), (req, res) => {
   res.redirect('http://192.168.0.49:8081/');
 });
 
-app.get('/borrar/:id', (req, res) => {
+app.delete('/borrar/:id', (req, res) => {
   const equipos = fs.readFileSync('./data/equipos.json');
   const objetoJson = JSON.parse(equipos);
   const nuevoArray = objetoJson.filter(objeto => objeto.id !== Number(req.params.id));
   fs.writeFileSync('./data/equipos.json', JSON.stringify(nuevoArray));
-  res.redirect('/');
+  res.send('Equipo borrado correctamente');
 });
 
 app.get('/equipo/:id/ver', (req, res) => {
