@@ -63,6 +63,15 @@ app.get('/equipo/:id/ver', (req, res) => {
   res.send(equipo);
 });
 
+app.put('/equipo/:id/editar', (req, res) => {
+  const equipos = fs.readFileSync('./data/equipos.json');
+  const objetoJson = JSON.parse(equipos);
+  const equipo= objetoJson.find(objeto => objeto.id === Number(req.params.id));
+  res.setHeader('Content-Type', 'application/json');
+  res.send(equipo);
+});
+
+
 app.listen(PUERTO);
 console.log(`Escuchando en http://localhost:${PUERTO}`);
 

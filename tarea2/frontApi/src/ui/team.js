@@ -1,8 +1,8 @@
 export function listarInformacionDelEquipo(equipo) {
-    console.log(equipo)
+  console.log(equipo)
   const $imgEscudo = document.querySelector(".escudo-equipo");
   const urlImagen = equipo.crestUrl;
-  if (urlImagen !== undefined && urlImagen.startsWith("https://") ) {
+  if (urlImagen !== undefined && urlImagen.startsWith("https://")) {
     $imgEscudo.src = `${equipo.crestUrl}`;
   } else {
     $imgEscudo.src = `/${equipo.crestUrl}`;
@@ -20,13 +20,15 @@ export function listarInformacionDelEquipo(equipo) {
 }
 
 export function obtenerIdUrl() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
+  var urlParams = new URLSearchParams(window.location.search);
+  var id = urlParams.get('id');
 
-    return id;
+  return id;
 }
 
 export function borrarElEquipo(equipoSeleccionadoCallback = () => { }) {
-  const $botBorrar= document.querySelector(".borrar")
-  $botBorrar.addEventListener("click",()=> equipoSeleccionadoCallback(obtenerIdUrl()))
+  const $botBorrar = document.querySelector(".borrar")
+  $botBorrar.addEventListener("click", () => equipoSeleccionadoCallback(obtenerIdUrl()))
 }
+
+
