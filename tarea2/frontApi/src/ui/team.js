@@ -32,3 +32,21 @@ export function borrarElEquipo(equipoSeleccionadoCallback = () => { }) {
 }
 
 
+export function editarEquipo() {
+  const $botonEditar = document.querySelector(".Editar")
+  
+  $botonEditar.addEventListener("click", ()=>{
+    const $modal = document.querySelector(".modal");
+    $modal.style.display = "grid";
+
+
+  })
+}
+
+export function cerrarModal() {
+  const $cerrarModal = document.querySelector(".close")
+  const $modal = document.querySelector(".modal");
+  $cerrarModal.addEventListener("click",()=>{
+    $modal.style.display= "none"
+  })
+}

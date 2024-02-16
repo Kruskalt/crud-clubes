@@ -31,7 +31,9 @@
   .container-buttons button{
     margin-left: 20px;
   }
-  
+  form{
+    display: grid;
+  }
 </style>
 
 <head>
@@ -138,6 +140,42 @@
 
 
   </main>
+
+  <div id="ventanaModal" class="modal">
+    <div class="modal-content modal__modal-content">
+        <span class="close ">&times;</span>
+
+        <p></p>
+        <div id="modal-info" class="modal__modal-info" style="display: flex; flex-direction: row; ">
+          <form    enctype="multipart/form-data">
+            <label for="imagen" >Imagen: </label>
+            <input type="file" name="imagen" id="imagen" required>
+            <label for="nombre">nombre: </label>
+            <input type="text" name="nombre" id="nombre" required>
+            <label for="direccion">direccion: </label>
+            <input type="text" name="direccion" id="direccion" required>
+            <label for="pais">pais: </label>
+            <input type="text" name="pais" id="pais" required>
+            <label for="telefono">telefono: </label>
+            <input type="text" name="telefono" id="telefono" required>
+            <label for="email">email: </label>
+            <input type="text" name="email" id="email" >
+            <label for="website">website: </label>
+            <input type="text" name="website" id="website" >
+            <label for="fundacion">fundacion: </label>
+            <input type="text" name="fundacion" id="fundacion" >
+            <label for="cancha">: cancha: </label>
+            <input type="text" name="cancha" id="cancha" >
+    
+            <input type="submit" value="Subir" id="enviar"/>
+            
+            
+          </form>
+        </div>
+
+
+    </div>
+</div>
 
 
 </body>
