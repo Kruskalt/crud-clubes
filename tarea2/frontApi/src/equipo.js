@@ -1,5 +1,5 @@
-import { pedirUnEquipo,borrarUnEquipo} from "../../frontApi/src/servicios/servicios.js";
-import { listarInformacionDelEquipo, obtenerIdUrl,borrarElEquipo,editarEquipo,cerrarModal} from "../src/ui/team.js"; 
+import { editarUnEquipo,pedirUnEquipo,borrarUnEquipo} from "../../frontApi/src/servicios/servicios.js";
+import {asginarEventosABotonesEditar, listarInformacionDelEquipo, obtenerIdUrl,borrarElEquipo,editarEquipo,cerrarModal} from "../src/ui/team.js"; 
  
  
 
@@ -9,5 +9,6 @@ async function inicializar() {
      borrarElEquipo(borrarUnEquipo);
      editarEquipo();
      cerrarModal();
+     asginarEventosABotonesEditar( editarUnEquipo);
 }
 inicializar();

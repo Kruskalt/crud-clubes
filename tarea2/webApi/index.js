@@ -39,9 +39,23 @@ app.post('/form', upload.single('imagen'), (req, res) => {
     "crestUrl": "tarea2/webApi/uploads/imagenes/" + req.file.filename,
     "area": { "name": req.body.pais },
     "phone": req.body.telefono,
-    "website": req.body.website
+    "website": req.body.website,
+    "venue": req.body.cancha,
+    "founded": req.body.fundacion,
 
   })
+
+  fs.writeFileSync('./data/equipos.json', JSON.stringify(objetoJson));
+  res.redirect('http://192.168.0.49:8081/');
+});
+
+app.post('/subir-imagen/:id', upload.single('imagen'), (req, res) => {
+  
+  const equipos = fs.readFileSync('./data/equipos.json');
+  const objetoJson = JSON.parse(equipos);
+  const indiceEquipo = objetoJson.findIndex(objeto => objeto.id === Number(req.params.id));
+  objetoJson[indiceEquipo].crestUrl = "tarea2/webApi/uploads/imagenes/" + req.file.filename
+  
 
   fs.writeFileSync('./data/equipos.json', JSON.stringify(objetoJson));
   res.redirect('http://192.168.0.49:8081/');
@@ -62,13 +76,15 @@ app.get('/equipo/:id/ver', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(equipo);
 });
-
-app.put('/equipo/:id/editar', (req, res) => {
+app.put('/equipo/:id/:tipodato/:valor/editar', (req, res) => {
   const equipos = fs.readFileSync('./data/equipos.json');
   const objetoJson = JSON.parse(equipos);
-  const equipo= objetoJson.find(objeto => objeto.id === Number(req.params.id));
-  res.setHeader('Content-Type', 'application/json');
-  res.send(equipo);
+  const indiceEquipo = objetoJson.findIndex(objeto => objeto.id === Number(req.params.id));
+  console.log("dato",req.params.tipodato,"valor",req.params.valor)
+
+  objetoJson[indiceEquipo][req.params.tipodato] = req.params.valor;
+  fs.writeFileSync('./data/equipos.json', JSON.stringify(objetoJson));
+  res.send('Equipo editado correctamente');
 });
 
 

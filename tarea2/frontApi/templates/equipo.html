@@ -4,35 +4,45 @@
   .escudo-equipo {
     height: 250px;
   }
-  td{
+
+  td {
     --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-danger-rgb),var(--bs-bg-opacity))!important;
-    
-  }
-  th{
-    --bs-bg-opacity: 1;
-    background-color: grey!important;
+    background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+
   }
 
-  table{
+  th {
+    --bs-bg-opacity: 1;
+    background-color: grey !important;
+  }
+
+  table {
     margin-left: 20px;
     width: 97% !important;
     margin-top: 20px;
   }
-  .container-imagen{
+
+  .container-imagen {
     align-items: center;
     text-align: center;
   }
-  .titulo{
+
+  .titulo {
     margin-top: 30px;
     font-size: 100px;
-    
+
   }
-  .container-buttons button{
+
+  .container-buttons button {
     margin-left: 20px;
   }
-  form{
+
+  .container-datos {
     display: grid;
+  }
+
+  .filas {
+    margin-top: 5px;
   }
 </style>
 
@@ -71,8 +81,8 @@
                   height="80" />
               </a>
             </li>
-            
-            
+
+
           </ul>
         </div>
       </div>
@@ -92,49 +102,49 @@
 
       <table class="table">
         <thead>
-            <tr>
-                <th scope="col">Informacion</th>
-                <th scope="col">Valor</th>
-            </tr>
+          <tr>
+            <th scope="col">Informacion</th>
+            <th scope="col">Valor</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-                  
-            <td>Fundacion</td>
-            <td id="fundacion"> </td>   
-        </tr>
-            <tr>
-                  
-                <td> Direccion</td>
-                <td id="direccion"> </td>   
-            </tr>
-            <tr>
-                  
-                <td> Telefono</td>
-                <td id="telefono"> </td>   
-            </tr>
-            <tr>
-                  
-                <td> Website</td>
-                <td ><a href="" id="website"></a></td>   
-            </tr>
-            <tr>
-                  
-              <td>Email</td>
-              <td ><a  id="email" href="mailto:"></a> </td>   
-          </tr>
-          <tr>              
-            <td> Estadio</td>
-            <td id="estadio"></td>   
-        </tr>
-    
-        </tbody>
-    </table>
 
-    <div class="container-buttons">
-      <button class="borrar btn btn-primary">Borrar Equipo</button>
-      <button class="Editar btn btn-primary">Editar Equipo</button>
-    </div>
+            <td>Fundacion</td>
+            <td id="fundacion"> </td>
+          </tr>
+          <tr>
+
+            <td> Direccion</td>
+            <td id="direccion"> </td>
+          </tr>
+          <tr>
+
+            <td> Telefono</td>
+            <td id="telefono"> </td>
+          </tr>
+          <tr>
+
+            <td> Website</td>
+            <td><a href="" id="website"></a></td>
+          </tr>
+          <tr>
+
+            <td>Email</td>
+            <td><a id="email" href="mailto:"></a> </td>
+          </tr>
+          <tr>
+            <td> Estadio</td>
+            <td id="estadio"></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="container-buttons">
+        <button class="borrar btn btn-primary">Borrar Equipo</button>
+        <button class="Editar btn btn-primary">Editar Equipo</button>
+      </div>
 
     </div>
 
@@ -143,39 +153,67 @@
 
   <div id="ventanaModal" class="modal">
     <div class="modal-content modal__modal-content">
-        <span class="close ">&times;</span>
+      <span class="close ">&times;</span>
 
-        <p></p>
-        <div id="modal-info" class="modal__modal-info" style="display: flex; flex-direction: row; ">
-          <form    enctype="multipart/form-data">
-            <label for="imagen" >Imagen: </label>
-            <input type="file" name="imagen" id="imagen" required>
-            <label for="nombre">nombre: </label>
-            <input type="text" name="nombre" id="nombre" required>
-            <label for="direccion">direccion: </label>
-            <input type="text" name="direccion" id="direccion" required>
-            <label for="pais">pais: </label>
-            <input type="text" name="pais" id="pais" required>
-            <label for="telefono">telefono: </label>
-            <input type="text" name="telefono" id="telefono" required>
-            <label for="email">email: </label>
-            <input type="text" name="email" id="email" >
-            <label for="website">website: </label>
-            <input type="text" name="website" id="website" >
-            <label for="fundacion">fundacion: </label>
-            <input type="text" name="fundacion" id="fundacion" >
-            <label for="cancha">: cancha: </label>
-            <input type="text" name="cancha" id="cancha" >
-    
-            <input type="submit" value="Subir" id="enviar"/>
-            
-            
-          </form>
+      <p></p>
+      <div id="modal-info" class="modal__modal-info" style="display: flex; flex-direction: row; ">
+        <div class="container-datos">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><label >imagen: </label></td>
+                <td>
+                  <form id="formulario-subir" method="post" enctype="multipart/form-data">    
+                    <input type="file" name="imagen" id="imagen">
+                    <td><button class="editar editar-imagen" type="submit">Subir</button></td>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="nombre">nombre: </label></td>
+                <td><input type="text" name="nombre" id="nombre"></td>
+                <td><button class="editar editar-nombre">Editar</button></td>
+              </tr>
+              <tr>
+                <td><label for="direccion">direccion: </label></td>
+                <td><input type="text" name="direccion" id="direccion"></td>
+                <td><button class="editar editar-direccion">Editar</button></td>
+              </tr>
+              <tr>
+                <td><label for="telefono">telefono: </label></td>
+                <td><input type="text" name="telefono" id="telefono"></td>
+                <td><button class="editar editar-telefono">Editar</button></td>
+              </tr>
+              <tr>
+                <td><label for="email">email: </label></td>
+                <td><input type="text" name="email" id="email"></td>
+                <td><button class="editar editar-email">Editar</button></td>
+              </tr>
+              <tr>
+                <td><label for="website">website: </label></td>
+                <td><input type="text" name="website" id="website"></td>
+                <td><button class="editar editar-website">Editar</button></td>
+              </tr>
+              <tr>
+                <td><label for="fundacion">fundacion: </label></td>
+                <td><input type="text" name="fundacion" id="fundacion"></td>
+                <td><button class="editar editar-fundacion">Editar</button></td>
+              </tr>
+              <tr>
+                <td><label for="cancha">: cancha: </label></td>
+                <td><input type="text" name="cancha" id="cancha"></td>
+                <td><button class="editar editar-cancha">Editar</button></td>
+              </tr>
+            </tbody>
+
+
+
         </div>
+      </div>
 
 
     </div>
-</div>
+  </div>
 
 
 </body>
