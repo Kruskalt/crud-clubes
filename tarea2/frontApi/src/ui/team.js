@@ -79,13 +79,9 @@ function verificarQueDatoSeQuiereEditar(elem, funcionCallback, id) {
 function editarImagenEvento(id) {
   const formularioSubir = document.getElementById('formulario-subir');
   formularioSubir.addEventListener('submit', function(event) {
-    
-    const imagenInput = document.getElementById('imagen');
-    const archivo = imagenInput.files[0];
-    
-   
+     
     const actionURL = `http://localhost:8080/subir-imagen/${id}`;
-    console.log("se hizo click para enviar imagen",archivo)
+    
     
     formularioSubir.action = actionURL;
   });
