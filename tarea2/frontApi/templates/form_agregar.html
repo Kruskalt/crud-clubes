@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        *{box-sizing:border-box;}
+
+form{
+    margin-top: 60px !important;
+	width:600px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#cccccc;
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+	width:72px;
+	font-weight:bold;
+	display:inline-block;
+}
+
+form input[type="text"],
+form input[type="email"]{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+form input[type="submit"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+} 
+
+form input[type="submit"]:hover{
+	cursor:pointer;
+}
+
+textarea{
+	width:100%;
+	height:100px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;			
+	margin:8px 0;
+	/*resize: vertical | horizontal | none | both*/
+	resize:none;
+	display:block;
+}
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Añadir Equipo</title>
+</head>
+<body>
+    <form class="login-form" action="http://localhost:8080/form" method="POST" enctype="multipart/form-data">
+        <h1>Agregar Equipo</h1>
+
+        <label for="imagen" >Imagen: </label>
+        <input type="file" name="imagen" id="imagen" required>
+        <label for="nombre">nombre: </label>
+        <input type="text" name="nombre" id="nombre" required>
+        <label for="direccion">direccion: </label>
+        <input type="text" name="direccion" id="direccion" required>
+        <label for="pais">pais: </label>
+        <input type="text" name="pais" id="pais" required>
+        <label for="telefono">telefono: </label>
+        <input type="text" name="telefono" id="telefono" required>
+        <label for="email">email: </label>
+        <input type="text" name="email" id="email" >
+        <label for="website">website: </label>
+        <input type="text" name="website" id="website" >
+        <label for="fundacion">fundacion: </label>
+        <input type="text" name="fundacion" id="fundacion" >
+        <label for="cancha">: cancha: </label>
+        <input type="text" name="cancha" id="cancha" >
+
+        <input type="submit" value="Subir" id="enviar"/>
+        
+        
+      </form>
+    
+</body>
+    
+</html>
