@@ -8,7 +8,7 @@
     "dev:threads": "nodemon threads.js",
     "dev": "nodemon index-3.js",
     "dev:express": "nodemon ./express/index-2.js",
-    "dev:template": "cd ./tarea2/webApi && nodemon --inspect index.js",
+    "dev:template": "cd ./webApi && nodemon --inspect index.js",
     "test": "jest --collect-coverage",
     "cypress-run": "cypress run",
     "cypress-dev": "cypress open",
