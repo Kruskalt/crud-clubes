@@ -1,6 +1,6 @@
 module.exports = {
     verbose: true,
-    rootDir: 'tarea2/frontApi/src',
+    rootDir: 'frontApi/src',
     coverageDirectory: '../coverage/',
     testPathIgnorePatterns: ['/node_modules/', '.*fixture.js'],
     coveragePathIgnorePatterns: ['/node_modules/', '.*fixture.js'],
